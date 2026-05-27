@@ -1,7 +1,7 @@
 const Users = require("../model/auth.model.js")
-const catchAsync = require("../Utils/catchAsync.js");
-const AppError = require("../Utils/AppError.js");
-const { sendEmail } = require("../Utils/email.js");
+const catchAsync = require("../utils/CatchAsync.js");
+const AppError = require("../utils/AppError.js");
+const { sendEmail } = require("../utils/email.js");
 
 const createSendToken = (user, statusCode, res, options = {}) => {
     const token = user.signToken();
