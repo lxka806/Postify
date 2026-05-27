@@ -7,12 +7,18 @@ const PostsRouter = require("./router/post.route")
 const mongoose = require("mongoose")
 const AuthRouter = require("./router/auth.route")
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express()
 
 app.use(cookieParser())
 app.use(morgan("dev"))
 app.use(express.json())
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 
 app.use("/api/post", PostsRouter)
 app.use("/api/auth", AuthRouter )
